@@ -1,0 +1,23 @@
+{
+    "manifest_version": 2,
+    "name": "Orange",
+    "description": "This extension let you choose the prices that you intend to pay for products",
+    "version": "1.3",
+    "browser_action": {
+        "default_icon": "favicon.png",
+        "default_popup": "popup.html",
+        "default_title": "Orange"
+    },
+    "content_scripts": [{
+        "matches": ["https://*.kotsovolos.gr/*","https://*.ab.gr/*","https://*.booking.com/book*"],
+        "js": ["scripts/content.js","scripts/open_dialog.js"],
+        "run_at": "document_end"
+    }],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "permissions": [
+        "tabs", "activeTab", "webNavigation", "*://*/*"
+    ]
+}
